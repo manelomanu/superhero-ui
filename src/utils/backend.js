@@ -112,8 +112,6 @@ export default class Backend {
 
   static getTipPreviewUrl = (previewLink) => `${BACKEND_URL}${previewLink}`;
 
-  static getProfileImageUrl = (address) => `${BACKEND_URL}/profile/image/${address}`;
-
   static getCommentById = async (id) => backendFetch(`comment/api/${id}`);
 
   static getVerifiedUrls = async () => backendFetch('verified');
