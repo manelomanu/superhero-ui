@@ -41,6 +41,15 @@
               />
             </div>
           </div>
+          <div
+            v-for="[token, tokenBalance] in Object.entries(tokenBalances)"
+            :key="token"
+          >
+            <AeAmount
+              :amount="tokenBalance"
+              :token="token"
+            />
+          </div>
         </div>
       </div>
       <div class="section trending">
@@ -101,7 +110,7 @@ export default {
   },
   computed: {
     ...mapGetters(['isLoggedIn']),
-    ...mapState(['topics', 'loading', 'balance', 'account', 'currencyRates', 'settings']),
+    ...mapState(['topics', 'loading', 'balance', 'account', 'currencyRates', 'settings', 'tokenBalances']),
     currencyDropdownOptions() {
       if (this.currencyRates && this.currencyRates.aeternity && this.balance) {
         return Object.keys(this.currencyRates.aeternity)

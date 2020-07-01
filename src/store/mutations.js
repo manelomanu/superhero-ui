@@ -70,6 +70,9 @@ export default {
   setUserProfile(state, profile) {
     state.profile = profile;
   },
+  addTokenBalances(state, payload) {
+    state.tokenBalances[payload.token] = payload.balance;
+  },
   syncState(state, remoteState) {
     const customizer = (objValue, srcValue) => {
       if (!Array.isArray(srcValue)) return undefined;
