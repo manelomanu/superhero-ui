@@ -71,7 +71,7 @@ export default {
     state.profile = profile;
   },
   addTokenBalances(state, payload) {
-    state.tokenBalances[payload.token] = payload.balance;
+    state.tokenBalances = [...new Set(state.tokenBalances.concat([payload]))];
   },
   syncState(state, remoteState) {
     const customizer = (objValue, srcValue) => {

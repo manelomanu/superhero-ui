@@ -42,12 +42,12 @@
             </div>
           </div>
           <div
-            v-for="[token, tokenBalance] in Object.entries(tokenBalances)"
-            :key="token"
+            v-for="tokenBalance in tokenBalances"
+            :key="tokenBalance.token"
           >
             <AeAmount
-              :amount="tokenBalance"
-              :token="token"
+              :amount="tokenBalance.balance"
+              :token="tokenBalance.token"
             />
           </div>
         </div>
