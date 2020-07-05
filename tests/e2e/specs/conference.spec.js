@@ -20,7 +20,8 @@ describe('Conference.vue', () => {
       .should('be.visible')
 
       .and('have.attr', 'src')
-      // that value
-      .should('be.equal', `https://${Cypress.env('JITSI_DOMAIN')}/${ROOM_NAME}#${options}`);
+      .then((value) => {
+        expect(value).be.equal(`https://${Cypress.env('JITSI_DOMAIN')}/${ROOM_NAME}#${options}`);
+      });
   });
 });
